@@ -39,8 +39,16 @@ def scanFaces(imageName):
                 shutil.move(os.getcwd() + '/images/' + imageName, os.getcwd() + '/images/pictureOfMe/' + imageName)
             else:
                 print("It's not a picture of me!")
+                shutil.move(os.getcwd() + '/images/' + imageName, os.getcwd() + '/images/pictureOfOthers/' + imageName)
+                if os.path.isdir(os.getcwd() + '/images/pictureOfOthers') == False:
+                    os.mkdir(os.getcwd() + '/images/pictureOfOthers')
+                shutil.move(os.getcwd() + '/images/' + imageName, os.getcwd() + '/images/pictureOfOthers/' + imageName)
     except:
         print("No face found")
-
+        shutil.move(os.getcwd() + '/images/' + imageName, os.getcwd() + '/images/others/' + imageName)
+        if os.path.isdir(os.getcwd() + '/images/others') == False:
+            os.mkdir(os.getcwd() + '/images/others')
+        shutil.move(os.getcwd() + '/images/' + imageName, os.getcwd() + '/images/others/' + imageName)
+        
 # Calling function to scan all images in the images folder
 scanDir()
