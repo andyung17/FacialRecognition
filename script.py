@@ -1,3 +1,4 @@
+# Importing required libraries
 import face_recognition
 import os
 from dotenv import load_dotenv
